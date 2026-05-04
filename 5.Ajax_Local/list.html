@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div style="padding: 20px;">
+        <h2>Registered Users (from Local Storage)</h2>
+        <table border="1" id="userTable" style="width:100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <!-- Data will be injected here -->
+            </tbody>
+        </table>
+        <br>
+        <a href="index.html">Back to Registration</a>
+    </div>
+
+    <script>
+        window.onload = function() {
+            const tableBody = document.getElementById('tableBody');
+            const users = JSON.parse(localStorage.getItem('userList')) || [];
+
+            if (users.length === 0) {
+                tableBody.innerHTML = '<tr><td colspan="2">No users found.</td></tr>';
+            } else {
+                users.forEach(user => {
+                    let row = `<tr>
+                        <td>${user.username}</td>
+                        <td>${user.email}</td>
+                    </tr>`;
+                    tableBody.innerHTML += row;
+                });
+            }
+        };
+    </script>
+</body>
+</html>

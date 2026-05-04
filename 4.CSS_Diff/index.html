@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Methods Demonstration</title>
+
+    <!-- 1. EXTERNAL CSS (Link to a separate file) -->
+    <!-- In a real project, the line below would pull styles from style.css -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- 2. INTERNAL CSS (Embedded within the HTML file) -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .internal-box {
+            background-color: #e8f4fd;
+            border-left: 5px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>CSS Styling Methods</h2>
+
+        <!-- DEMONSTRATING INTERNAL CSS -->
+        <div class="internal-box">
+            <strong>Internal CSS:</strong> This box is styled using the &lt;style&gt; tag in the head section of this document.
+        </div>
+
+        <!-- DEMONSTRATING INLINE CSS -->
+        <div style="background-color: #fdf2e9; border-left: 5px solid #e67e22; padding: 15px; margin: 20px 0;">
+            <strong>Inline CSS:</strong> This box is styled using the <code>style=""</code> attribute directly on the HTML tag.
+        </div>
+
+        <!-- DEMONSTRATING EXTERNAL CSS -->
+        <div class="external-box">
+            <strong>External CSS:</strong> If you create a file named <code>style.css</code>, this box will turn blue and have white text.
+        </div>
+    </div>
+
+</body>
+</html>

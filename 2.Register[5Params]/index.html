@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Validation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Create Account</h2>
+        <form id="registrationForm">
+            <div class="input-group">
+                <input type="text" id="firstName" placeholder="First Name">
+                <small class="error-msg"></small>
+            </div>
+            
+            <div class="input-group">
+                <input type="text" id="lastName" placeholder="Last Name">
+                <small class="error-msg"></small>
+            </div>
+
+            <div class="input-group">
+                <input type="email" id="email" placeholder="Email (name@domain.com)">
+                <small class="error-msg"></small>
+            </div>
+
+            <div class="input-group">
+                <input type="password" id="password" placeholder="Password">
+                <small class="error-msg"></small>
+            </div>
+
+            <div class="input-group">
+                <input type="text" id="mobile" placeholder="Mobile Number (10 digits)">
+                <small class="error-msg"></small>
+            </div>
+
+            <div class="input-group">
+                <textarea id="address" placeholder="Address"></textarea>
+                <small class="error-msg"></small>
+            </div>
+
+            <button type="submit">Register</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
