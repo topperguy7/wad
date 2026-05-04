@@ -1,0 +1,11 @@
+git init
+
+git status
+
+git add .
+
+git commit -m "commit name(can give it anything)"
+
+git remote add origin [your github repo link] example=>https://github.com/topperguy7/wad.git
+
+git push -u origin main

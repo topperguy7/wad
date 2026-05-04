@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure User Login</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #71b7e6, #9b59b6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Form Container */
+        .login-container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            width: 350px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; /* Ensures padding doesn't break layout */
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            border-color: #9b59b6;
+            outline: none;
+        }
+
+        /* Error Message Styles */
+        .error {
+            color: #e74c3c;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        /* Button Styles */
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #9b59b6;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #8e44ad;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>User Login</h2>
+    <form id="loginForm">
+        <!-- Username Field -->
+        <div class="input-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" placeholder="Enter username">
+            <div id="userError" class="error">Username is required</div>
+        </div>
+
+        <!-- Password Field -->
+        <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter password">
+            <div id="passError" class="error">Password must be at least 6 characters</div>
+        </div>
+
+        <button type="submit">Sign In</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        // Prevent form from actual submission
+        event.preventDefault();
+
+        // Get values
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value.trim();
+        
+        // Get error elements
+        const userError = document.getElementById('userError');
+        const passError = document.getElementById('passError');
+
+        let isValid = true;
+
+        // 1. Username Validation (Check if empty)
+        if (username === "") {
+            userError.style.display = "block";
+            document.getElementById('username').style.borderColor = "#e74c3c";
+            isValid = false;
+        } else {
+            userError.style.display = "none";
+            document.getElementById('username').style.borderColor = "#ccc";
+        }
+
+        // 2. Password Validation (Check length)
+        if (password.length < 6) {
+            passError.style.display = "block";
+            document.getElementById('password').style.borderColor = "#e74c3c";
+            isValid = false;
+        } else {
+            passError.style.display = "none";
+            document.getElementById('password').style.borderColor = "#ccc";
+        }
+
+        // 3. Final Check
+        if (isValid) {
+            // Mocking a successful login
+            alert("Login successful!\nUsername: " + username);
+            // You could redirect the user here: window.location.href = "dashboard.html";
+        }
+    });
+</script>
+
+</body>
+</html>

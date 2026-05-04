@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Validation</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            padding: 40px 0;
+        }
+
+        .form-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            width: 400px;
+        }
+
+        h2 { text-align: center; color: #333; margin-bottom: 20px; }
+
+        .form-group { margin-bottom: 15px; position: relative; }
+
+        label { display: block; font-weight: 600; margin-bottom: 5px; font-size: 14px; }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        /* Error state styling */
+        .error-border { border-color: #e74c3c !important; }
+
+        .error-text {
+            color: #e74c3c;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none; /* Hidden by default */
+        }
+
+        .terms { font-size: 13px; display: flex; align-items: center; gap: 8px; }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        button:hover { background-color: #27ae60; }
+    </style>
+</head>
+<body>
+
+<div class="form-card">
+    <h2>Create Account</h2>
+    <form id="regForm">
+        
+        <!-- Username -->
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" id="username" placeholder="At least 5 characters">
+            <div id="userError" class="error-text">Username must be at least 5 characters long.</div>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+            <label>Email Address</label>
+            <input type="text" id="email" placeholder="example@domain.com">
+            <div id="emailError" class="error-text">Please enter a valid email address.</div>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" id="password" placeholder="At least 8 characters">
+            <div id="passError" class="error-text">Password must be at least 8 characters.</div>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="form-group">
+            <label>Confirm Password</label>
+            <input type="password" id="confirmPassword" placeholder="Repeat password">
+            <div id="confirmError" class="error-text">Passwords do not match.</div>
+        </div>
+
+        <!-- Terms Checkbox -->
+        <div class="form-group terms">
+            <input type="checkbox" id="terms">
+            <span>I agree to the Terms & Conditions</span>
+        </div>
+        <div id="termsError" class="error-text" style="margin-bottom: 10px;">You must agree to the terms.</div>
+
+        <button type="submit">Register Now</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById('regForm').addEventListener('submit', function(e) {
+        e.preventDefault(); // Prevent page reload
+
+        // 1. Get Values
+        const username = document.getElementById('username').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+        const terms = document.getElementById('terms').checked;
+
+        let isValid = true;
+
+        // 2. Utility function to toggle errors
+        const toggleError = (id, show, fieldId) => {
+            const errorDiv = document.getElementById(id);
+            const field = document.getElementById(fieldId);
+            if (show) {
+                errorDiv.style.display = 'block';
+                if(field) field.classList.add('error-border');
+                isValid = false;
+            } else {
+                errorDiv.style.display = 'none';
+                if(field) field.classList.remove('error-border');
+            }
+        };
+
+        // 3. Validation Logic
+        
+        // Username: Min 5 chars
+        toggleError('userError', username.length < 5, 'username');
+
+        // Email: Standard Regex
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        toggleError('emailError', !emailRegex.test(email), 'email');
+
+        // Password: Min 8 chars
+        toggleError('passError', password.length < 8, 'password');
+
+        // Confirm Password: Match check
+        toggleError('confirmError', confirmPassword !== password || confirmPassword === "", 'confirmPassword');
+
+        // Terms: Checkbox state
+        toggleError('termsError', !terms);
+
+        // 4. Final Success Action
+        if (isValid) {
+            alert("Registration Submitted Successfully!");
+            // this.submit(); // Uncomment to actually send to server
+        }
+    });
+</script>
+
+</body>
+</html>

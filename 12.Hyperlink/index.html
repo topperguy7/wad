@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hyperlink Demonstration</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; padding: 20px; }
+        section { height: 600px; padding: 20px; border: 1px solid #ddd; margin-top: 10px; }
+        .nav-menu { background: #eee; padding: 10px; position: sticky; top: 0; }
+    </style>
+</head>
+<body>
+
+    <h1>Hyperlink Demo</h1>
+
+    <div class="nav-menu">
+        <strong>Jump to Section:</strong>
+        <a href="#section1">Section 1</a> | 
+        <a href="#section2">Section 2</a> | 
+        <a href="#section3">Section 3</a>
+        <br>
+        <strong>External Links:</strong>
+        <a href="https://github.com" target="_blank">Open GitHub (New Tab)</a>
+    </div>
+
+    <section id="section1" style="background-color: #fff4f4;">
+        <h2>Section 1</h2>
+        <p>This is the first section. Scroll down or use the menu to jump.</p>
+    </section>
+
+    <section id="section2" style="background-color: #f4fff4;">
+        <h2>Section 2</h2>
+        <p>You have jumped to the middle of the page!</p>
+        <a href="#section1">Back to Top</a>
+    </section>
+
+    <section id="section3" style="background-color: #f4f4ff;">
+        <h2>Section 3</h2>
+        <p>This is the bottom section.</p>
+        <a href="#section1">Return to Top of Page</a>
+    </section>
+
+</body>
+</html>

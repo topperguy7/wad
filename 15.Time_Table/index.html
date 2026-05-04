@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Class Timetable</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 12px;
+        }
+        th {
+            background-color: #2c3e50;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .lunch-break {
+            background-color: #ecf0f1 !important;
+            font-weight: bold;
+            font-style: italic;
+            letter-spacing: 5px;
+        }
+        .subject-lab {
+            background-color: #d1ecf1;
+        }
+        caption {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <table>
+        <caption>College Weekly Timetable</caption>
+        <thead>
+            <tr>
+                <th>Time / Day</th>
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th>Friday</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>09:00 - 10:00</td>
+                <td>Mathematics</td>
+                <td>Physics</td>
+                <td>Chemistry</td>
+                <td>English</td>
+                <td>History</td>
+            </tr>
+            <tr>
+                <td>10:00 - 11:00</td>
+                <td>Physics</td>
+                <td>Mathematics</td>
+                <td>English</td>
+                <td>Chemistry</td>
+                <td>Geography</td>
+            </tr>
+            <tr>
+                <td>11:00 - 12:00</td>
+                <td colspan="5" class="lunch-break">LUNCH BREAK</td>
+            </tr>
+            <tr>
+                <td>12:00 - 01:00</td>
+                <td>Biology</td>
+                <td rowspan="2" class="subject-lab">Computer Lab</td>
+                <td>History</td>
+                <td>Mathematics</td>
+                <td>Physics</td>
+            </tr>
+            <tr>
+                <td>01:00 - 02:00</td>
+                <td>Geography</td>
+                <td>Biology</td>
+                <td>English</td>
+                <td>Mathematics</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
