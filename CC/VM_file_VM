@@ -1,0 +1,9 @@
+sudo apt install net-tools
+
+touch transfer.txt
+
+nano transfer.txt
+
+cat transfer.txt
+
+scp transfer.txt [recieverName]@[recieverIP]:[directory where the file will be placed --ex./home/user]
